@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" action="/login/create-user">
+        {% csrf_token %}
+        <input name="stu_name" type="text" placeholder="name"><br>
+        <input name="stu_mail" type="email" placeholder="email"><br>
+        <input name="stu_password" type="password" placeholder="password"><br>
+        <input name="stu_mobile" type="number" placeholder="mobile"><br>
+        <input name="stu_address" type="text" placeholder="address"><br>
+        <input name="stu_roll" type="number" placeholder="roll no">
+
+        <input type="submit" value="signup">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+from django import forms
+
+class LoginForm(forms.Form):
+    stu_roll = forms.CharField(label="stu_roll",max_length=100)
+    stu_password = forms.CharField(label="stu_password" , max_length=100)
+    # password = forms.CharField(widget=forms.PasswordInput())
+
+
+class SignUpForm(forms.Form):
+    stu_name = forms.CharField(label="stu_name", max_length=100)
+    stu_mail = forms.CharField(label="stu_mail", max_length=100)
+    stu_password = forms.CharField(label="stu_password", max_length=100)
+    stu_mobile = forms.IntegerField(label="stu_mobile")
+    stu_address = forms.CharField(label="stu_address", max_length=100)
+    stu_roll = forms.IntegerField(label="stu_roll")
+
+
+
+
+    # def cleaned_data(self):
+    #     stu_name = self.cleaned_data.get("stu_name")
+    #     stu_address = self.cleaned_data.get("stu_address")
+    #     stu_roll = self.cleaned_data.get("stu_roll")
+    #     stu_mobile = self.cleaned_data.get("stu_mobile")
+    #     stu_mail = self.cleaned_data.get("stu_mail")
+    #     stu_password = self.cleaned_data.get("stu_password")
