@@ -15,6 +15,13 @@ class SignUpForm(forms.Form):
     stu_roll = forms.IntegerField(label="stu_roll")
     stu_branch = forms.CharField(label="stu_branch" , max_length=100)
 
+class ChangePasswordFrom(forms.Form):
+    old_password = forms.CharField(label="old_password", max_length=100)
+    new_password = forms.CharField(label="new_password", max_length=100)
+    # password = forms.CharField(widget=forms.PasswordInput())
+class ProfilePicForm(forms.Form):
+    picture = forms.ImageField()
+
 
 
 

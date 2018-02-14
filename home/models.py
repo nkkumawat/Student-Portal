@@ -10,3 +10,13 @@ class PayFees(models.Model):
     remarks = models.CharField(max_length=150 ,default="")
     class Meta:
         db_table = "payfees"
+
+
+class Result(models.Model):
+    stu_roll = models.IntegerField()
+    stu_semester = models.IntegerField()
+    stu_result = models.CharField(max_length=10)
+    stu_sgpa = models.FloatField()
+    stu_percent = models.FloatField()
+    class Meta:
+        db_table = "result"

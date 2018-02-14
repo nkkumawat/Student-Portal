@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+    <br><br><br>
+    <div class="uk-child-width-1-4@s uk-grid-match" uk-grid>
+        {% for res in result %}
+            <div>
+            <div class="uk-card uk-card-default uk-card-body">
+                <h3 class="uk-card-title">Semester : {{ res.stu_semester }}</h3>
+                <p>Result : {{ res.stu_result }}</p>
+                <p>SGPA : {{ res.stu_sgpa }}</p>
+                <p>Percentage : {{ res.stu_percent }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+     <br><br>
+
+
+{% endblock %}
