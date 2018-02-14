@@ -1,11 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Home</h1>
-{{ student.first.stu_name }}
-</body>
-</html>
+{% extends 'layout.html' %}
+{% block content %}
+
+    <div class="uk-child-width-expand@s uk-text-center pay-form" uk-grid>
+        <div>
+
+
+
+        </div>
+        <div>
+            <form method="post" action="/home/pay">
+                {% csrf_token %}
+                <fieldset class="uk-fieldset">
+                    <legend class="uk-legend">Pay</legend>
+                    <div class="uk-margin">
+                        <select class="uk-select" name="stu_semester">
+                            {% for sem in semesters %}
+                            <option>{{ sem }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <input class="uk-input" name="paid_amount"  />
+                    <label for=""
+                    <div class="uk-margin">
+                        <input class="uk-input" name="paid_amount" type="number" placeholder="Amount Paid">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input" name="receipt_no" type="text" placeholder="Receipt No.">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input" name="remarks" type="text" placeholder="Remarks">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input"  type="submit" value="Submit">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div></div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>{{ student.first.stu_name }}</title>
+    <link rel="stylesheet" href="{% static "/css/uikit.css"%} "/>
+    <link rel="stylesheet" href="{% static "/css/main.css"%} "/>
+</head>
+<body>
+<nav class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-left">
+        <h1>Student Portal</h1>
+    </div>
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+            <li class="uk-active"><a href="/home">Home</a></li>
+            <li class="uk-active">
+                 <a uk-icon="icon: chevron-down; ratio: 1.3" href="#">Options</a>
+                <div class="uk-navbar-dropdown" >
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a href="#" id="a-pay">Pay</a></li>
+                        <li><a href="#">Result</a></li>
+                        <li><a href="/user/logout">others</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a uk-icon="icon: chevron-down; ratio: 1.3" href="#">{{student.first.stu_name  }}</a>
+                <div class="uk-navbar-dropdown" >
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Item</a></li>
+                        <li><a href="/user/logout">Logout</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+ {% block content %}
+ {% endblock %}
+<nav class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-right">
+        <ul class="uk-nav uk-navbar-dropdown-nav footer">
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+        </ul>
+    </div>
+</nav>
+<script src="{% static  "/js/jquery.js"  %}"></script>
+<script src="{% static  "/js/uikit.js"  %}"></script>
+<script src="{% static  "/js/uikit-icons.js"  %}"></script>
+<script src="{% static  "/js/main.js"  %}"></script>
+</body>
+</html>

@@ -1,21 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ student.first.stu_name }}</title>
+    <link rel="stylesheet" href="{% static "/css/uikit.css"%} "/>
 </head>
 <body>
-    <form method="post" action="/login/create-user">
-        {% csrf_token %}
-        <input name="stu_name" type="text" placeholder="name"><br>
-        <input name="stu_mail" type="email" placeholder="email"><br>
-        <input name="stu_password" type="password" placeholder="password"><br>
-        <input name="stu_mobile" type="number" placeholder="mobile"><br>
-        <input name="stu_address" type="text" placeholder="address"><br>
-        <input name="stu_roll" type="number" placeholder="roll no">
-
-        <input type="submit" value="signup">
-    </form>
-
+    <br><br>
+    <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+        <div></div>
+        <div>
+            <form method="post" action="/user/create">
+                {% csrf_token %}
+                <fieldset class="uk-fieldset">
+                    <legend class="uk-legend">Sign Up</legend>
+                    <div class="uk-margin">
+                        <input class="uk-input" name="stu_name" type="text" placeholder="Name">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input" name="stu_mail" type="email" placeholder="Email">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input" name="stu_roll" type="text" placeholder="Roll No.">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input" name="stu_password" type="password" placeholder="Password">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input" name="stu_mobile" type="mobile" placeholder="Mobile">
+                    </div>
+                    <div class="uk-margin">
+                        <select class="uk-select" name="stu_branch">
+                            {% for brnch in branch %}
+                            <option>{{ brnch.stu_branch  }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input" name="stu_address" type="text" placeholder="Address">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input"  type="submit" value="Sign Up">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div></div>
+    </div>
+<script src="{% static  "/js/uikit.js"  %}"></script>
+<script src="{% static  "/js/uikit-icons.js"  %}"></script>
 </body>
 </html>

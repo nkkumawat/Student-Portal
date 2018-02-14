@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ student.first.stu_name }}</title>
+    <link rel="stylesheet" href="{% static "/css/uikit.css"%} "/>
 </head>
 <body>
-     <form method="post" action="/login/auth">
-        {% csrf_token %}
-        <input name="stu_roll" type="text" placeholder="Roll"><br>
-        <input name="stu_password" type="password" placeholder="password">
-        <input type="submit" value="signup">
-    </form>
-
-
+    <br><br>
+    <br><br>
+    <br><br>
+    <div class="uk-child-width-expand@s uk-text-center" uk-grid>
+        <div></div>
+        <div>
+             <form method="post" action="/user/auth">
+                {% csrf_token %}
+                <fieldset class="uk-fieldset">
+                    <legend class="uk-legend">Login</legend>
+                    <div class="uk-margin">
+                        <input class="uk-input" name="stu_roll" type="text" placeholder="Roll No.">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input" name="stu_password" type="password" placeholder="Password">
+                    </div>
+                    <div class="uk-margin">
+                        <input class="uk-input"  type="submit" value="Login">
+                    </div>
+                </fieldset>
+             </form>
+        </div>
+        <div></div>
+    </div>
+<script src="{% static  "/js/uikit.js"  %}"></script>
+<script src="{% static  "/js/uikit-icons.js"  %}"></script>
 </body>
 </html>
