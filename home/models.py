@@ -20,3 +20,10 @@ class Result(models.Model):
     stu_percent = models.FloatField()
     class Meta:
         db_table = "result"
+
+class Notification(models.Model):
+    notification_title = models.CharField(max_length=400)
+    notification_attachment_url = models.CharField(max_length=400)
+    notification_text = models.CharField(max_length=1000)
+    class Meta:
+        db_table = "notifications"

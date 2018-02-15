@@ -6,7 +6,7 @@ class Student(models.Model):
     stu_mail = models.CharField(max_length=150, default="")
     stu_address = models.CharField(max_length=300,default="")
     stu_password = models.CharField(max_length=300)
-    stu_image_url = models.CharField(max_length=300,default="")
+    stu_image_url = models.CharField(max_length=300,default="/static/images/nit.png")
     stu_branch_id = models.IntegerField(default="-1")
     stu_course_id = models.IntegerField(default="-1")
     stu_semester_id = models.IntegerField(default="-1")

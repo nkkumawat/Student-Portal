@@ -13,7 +13,9 @@ class SignUpForm(forms.Form):
     stu_mobile = forms.IntegerField(label="stu_mobile")
     stu_address = forms.CharField(label="stu_address", max_length=100)
     stu_roll = forms.IntegerField(label="stu_roll")
-    stu_branch = forms.CharField(label="stu_branch" , max_length=100)
+    stu_branch_id = forms.CharField(label="stu_branch_id" , max_length=100)
+    stu_course_id = forms.CharField(label="stu_course_id" , max_length=100)
+    stu_semester_id = forms.CharField(label="stu_semester_id" , max_length=100)
 
 class ChangePasswordFrom(forms.Form):
     old_password = forms.CharField(label="old_password", max_length=100)

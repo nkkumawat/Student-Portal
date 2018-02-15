@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse , HttpResponseRedirect
 from user.forms import LoginForm , SignUpForm , ChangePasswordFrom
-from user.models import Student , Branch
+from user.models import Student , Branch , Semester , Course
 from django.contrib.auth.hashers import make_password , check_password
 
 # Create your views here.
@@ -39,6 +39,9 @@ def sign_up(request):
             student.stu_roll = form.cleaned_data['stu_roll']
             student.stu_address = form.cleaned_data['stu_address']
             student.stu_mobile = form.cleaned_data['stu_mobile']
+            student.stu_branch_id = form.cleaned_data['stu_branch_id']
+            student.stu_course_id = form.cleaned_data['stu_course_id']
+            student.stu_semester_id = form.cleaned_data['stu_semester_id']
             student.save()
             # print(student.id)
             request.session['stu_roll'] = student.stu_roll
@@ -49,7 +52,14 @@ def sign_up_page(request):
         return HttpResponseRedirect('/home')
     else:
         branch = Branch.objects.all()
-        return render(request , 'signup.html' , {"branch" : branch})
+        semester =Semester.objects.all()
+        course =Course.objects.all()
+        student = {
+            "branch": branch,
+            "semester": semester,
+            "course" : course
+        }
+        return render(request , 'signup.html' , student)
 
 def logout(request):
     if 'stu_roll' in request.session:

@@ -10,5 +10,6 @@ urlpatterns = [
     path('profile', views.profile , name="profile"),
     path('result', views.result , name="result"),
     path('upload_pic', views.profile_pic_upload , name="Upload"),
+    path('notifications', views.notifications , name="notifications"),
 
 ]

@@ -22,18 +22,30 @@
                         <input class="uk-input" name="stu_mail" type="email" placeholder="Email">
                     </div>
                     <div class="uk-margin">
-                        <input class="uk-input" name="stu_roll" type="text" placeholder="Roll No.">
+                        <input class="uk-input uk-width-2-5 uk-align-left" name="stu_roll" type="text" placeholder="Roll No.">
+                        <input class="uk-input uk-width-2-5 uk-align-right" name="stu_mobile" type="mobile" placeholder="Mobile">
                     </div>
                     <div class="uk-margin">
                         <input class="uk-input" name="stu_password" type="password" placeholder="Password">
                     </div>
                     <div class="uk-margin">
-                        <input class="uk-input" name="stu_mobile" type="mobile" placeholder="Mobile">
+                        <select class="uk-select uk-width-2-5 uk-align-left" name="stu_course_id">
+                            {% for cour in course %}
+                            <option value="{{ cour.id }}">{{ cour.stu_course  }}</option>
+                            {% endfor %}
+                        </select>
+{#                    </div>#}
+{#                    <div class="uk-margin">#}
+                        <select class="uk-select uk-width-2-5 uk-align-right" name="stu_branch_id">
+                            {% for brnch in branch %}
+                            <option value="{{ brnch.id }}"> {{ brnch.stu_branch  }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
                     <div class="uk-margin">
-                        <select class="uk-select" name="stu_branch">
-                            {% for brnch in branch %}
-                            <option>{{ brnch.stu_branch  }}</option>
+                        <select class="uk-select" name="stu_semester_id">
+                            {% for sem in semester %}
+                            <option value="{{ sem.id }}">Semester : {{ sem.stu_semester}}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -41,10 +53,13 @@
                         <input class="uk-input" name="stu_address" type="text" placeholder="Address">
                     </div>
                     <div class="uk-margin">
-                        <input class="uk-input"  type="submit" value="Sign Up">
+                        <input class="uk-input uk-width-1-4 uk-align-right"  type="submit" value="Sign Up">
+                        <a class="uk-button uk-button-default uk-align-left" href="/user/login">Login</a>
                     </div>
                 </fieldset>
             </form>
+             <div class="uk-margin">
+            </div>
         </div>
         <div></div>
     </div>
