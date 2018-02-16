@@ -5,10 +5,10 @@
         {% for notifi in notification %}
             <div>
             <div class="uk-card uk-card-default uk-card-body">
-                <h3 class="uk-card-title">Semester : {{ notifi.notification_title }}</h3>
-                <p>Result : {{ notifi.notification_text }}</p>
+                <h3 class="uk-card-title">{{ notifi.notification_title }}</h3>
+                <p>{{ notifi.notification_text }}</p>
                 <a href="{{ notifi.notification_attachment_url }}" class="uk-align-right" uk-icon="icon: download; ratio: 2"></a>
-{#                <p>Percentage : {{ res.stu_percent }}</p>#}
+<!-- {#                <p> : {{ res.stu_percent }}</p>#} -->
             </div>
         </div>
         {% endfor %}

@@ -47,7 +47,9 @@ def payFees(request):
         form = PayFeesForm()
         if request.method == "POST":
             form = PayFeesForm(request.POST)
-            print(form.errors)
+            fees = PayFees.objects.filter(stu_roll=request.session['stu_roll'] , stu_semester=form.cleaned_data['stu_semester'])
+#            if fees:
+                
             if form.is_valid():
                 fees = PayFees()
                 fees.stu_roll = request.session['stu_roll']
@@ -83,9 +85,11 @@ def payFees(request):
         else:
             stu = Student.objects.get(stu_roll=request.session['stu_roll'])
             sem = Semester.objects.all()
+            fees = PayFees.objects.filter(stu_roll=request.session['stu_roll'])
             student = {
                 "student": stu,
-                "semesters": sem
+                "semesters": sem,
+                "fees": fees
             }
             return render(request, 'pay.html', student)
 
